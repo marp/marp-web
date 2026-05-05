@@ -505,9 +505,8 @@ a:hover {
     gap: 30px;
 }
 
-.skill-card {
-    background: var(--bg-primary);
-    padding: 40px 35px;
+.skill-card, .project-card {
+    padding: 35px 30px;
     border-radius: 5px;
     border: 1px solid var(--bg-tertiary);
     transition: var(--transition);
@@ -515,7 +514,10 @@ a:hover {
     overflow: hidden;
 }
 
-.skill-card::before {
+.skill-card { background: var(--bg-primary); }
+.project-card { background: var(--bg-secondary); }
+
+.skill-card::before, .project-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -528,13 +530,13 @@ a:hover {
     transition: var(--transition);
 }
 
-.skill-card:hover {
-    transform: translateY(-10px);
+.skill-card:hover, .project-card:hover {
+    transform: translateY(-8px);
     border-color: var(--accent);
     box-shadow: 0 20px 50px -15px rgba(2, 12, 27, 0.5);
 }
 
-.skill-card:hover::before {
+.skill-card:hover::before, .project-card:hover::before {
     transform: scaleX(1);
 }
 
@@ -576,6 +578,43 @@ a:hover {
     left: 0;
     color: var(--accent);
 }
+
+/* ===== PROJECTS SECTION ===== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.project-folder svg {
+    width: 40px;
+    height: 40px;
+    stroke: var(--accent);
+}
+
+.project-links { display: flex; gap: 5px; }
+
+.project-github { color: var(--text-secondary); padding: 5px; }
+.project-github:hover { color: var(--accent); transform: translateY(-3px); }
+.project-github svg { width: 22px; height: 22px; }
+
+.project-title { font-size: 1.2rem; font-weight: 600; }
+.project-title a { color: var(--text-primary); }
+.project-title a:hover { color: var(--accent); }
+
+.project-desc { font-size: 0.9rem; line-height: 1.7; flex: 1; }
 
 /* ===== CONTACT SECTION ===== */
 .contact {

@@ -128,10 +128,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== SKILL CARDS STAGGER ANIMATION =====
-    const skillCards = document.querySelectorAll('.skill-card');
+    // ===== CARDS STAGGER ANIMATION =====
+    const cards = document.querySelectorAll('.skill-card, .project-card');
 
-    const animateSkillCards = (entries, observer) => {
+    const animateCards = (entries, observer) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
                 setTimeout(() => {
@@ -144,13 +144,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if ('IntersectionObserver' in window) {
-        const skillObserver = new IntersectionObserver(animateSkillCards, {
+        const cardObserver = new IntersectionObserver(animateCards, {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         });
 
-        skillCards.forEach(card => {
-            skillObserver.observe(card);
+        cards.forEach(card => {
+            cardObserver.observe(card);
         });
     }
 
